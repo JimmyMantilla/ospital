@@ -13,6 +13,10 @@ router.get("/logindoctores", (req, res)=>{
     res.send("vista para el login de los doctores")
 })
 
+router.get("/perfildoctores", (req, res)=>{
+    res.status(201).json({ mensaje: 'Estamos en perfil doctores'});
+})
+
 //codigo gpt 
 router.post('/registrar', registrarDoctor);
 //codigo gpt 

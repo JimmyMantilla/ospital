@@ -2,43 +2,70 @@
 
 import Doctor from '../models/Doctor.js'
 
+import bcrypt from 'bcrypt';
+
+import crypto from 'crypto';
+
 //codigo gpt
 
 const cdoctores = (req, res)=>{
     res.send("vista para doctores");
 };
 
-//codigo gpt
 const registrarDoctor = async (req, res) => {
-    try {
-        const { nombre, password, email, Celular, token, confirmado } = req.body;
+    const { nombre, password, email, Celular, confirmado } = req.body;
 
-        // Crear una nueva instancia de Doctor con los datos recibidos
+    try {
+        // Verificar si el doctor ya está registrado con el correo electrónico proporcionado
+        const doctorExistente = await Doctor.findOne({ email });
+
+        if (doctorExistente) {
+            // Si el doctor ya existe, enviar un mensaje de error
+            return res.status(400).json({ error: 'El doctor ya está registrado en la base de datos' });
+        }
+
+        // Generar un token aleatorio único
+        const token = crypto.randomBytes(16).toString('hex');
+
+        // Hashear la contraseña antes de compararla y guardarla en la base de datos
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Comparar la contraseña hasheada con la contraseña proporcionada
+        const contraseñasCoinciden = await bcrypt.compare(password, hashedPassword);
+
+        if (!contraseñasCoinciden) {
+            // Si las contraseñas no coinciden, enviar un mensaje de error
+            return res.status(400).json({ error: 'La contraseña proporcionada no es válida' });
+        }
+
+        // Si las contraseñas coinciden y el doctor no existe, crear y guardar el nuevo doctor
         const nuevoDoctor = new Doctor({
             nombre,
-            password,
+            password: hashedPassword, // Usamos la contraseña hasheada
             email,
             Celular,
             token,
             confirmado
         });
 
-        // Guardar el nuevo doctor en la base de datos
-        const doctorGuardado = await nuevoDoctor.save();
+        await nuevoDoctor.save();
 
-        // Responder con un mensaje de éxito y los datos del doctor guardado
-        res.status(201).json({ mensaje: 'Doctor registrado correctamente', doctor: doctorGuardado });
+        // Enviar respuesta de éxito con campo adicional indicando si las contraseñas coinciden
+        const respuesta = {
+            mensaje: 'Doctor registrado exitosamente',
+            contraseñasCoinciden: contraseñasCoinciden
+        };
+        res.status(201).json(respuesta);
     } catch (error) {
-        // Manejar cualquier error que ocurra durante el proceso de registro
+        // Manejar errores
         console.error('Error al registrar doctor:', error.message);
-        res.status(500).json({ mensaje: 'Error interno al registrar doctor' });
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
-
 
 //codigo gpt
 
 
 export{
     cdoctores, registrarDoctor
-}
+};

@@ -1,33 +1,35 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcrypt';
 
 const doctorSchema = mongoose.Schema({
-    nombre:{
+    nombre: {
         type: String,
-        required: true, 
+        required: true,
         trim: true
     },
-    password:{
+    password: {
         type: String,
         required: true
     },
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true,
         trim: true
     },
-    Celular:{
+    Celular: {
         type: String,
         default: null,
         trim: true
     },
-    token:{
+    token: {
         type: String
     },
-    confirmado:{
+    confirmado: {
         type: Boolean,
         default: false
     }
 });
+
 const Doctor = mongoose.model("Doctor", doctorSchema);
 export default Doctor;
