@@ -12,6 +12,32 @@ const cdoctores = (req, res)=>{
     res.send("vista para doctores");
 };
 
+const loginDoctor = async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      // Verifica si el doctor existe en la base de datos
+      const doctor = await Doctor.findOne({ email });
+  
+      if (!doctor) {
+        return res.status(401).json({ error: 'Correo electrónico o contraseña incorrectos' });
+      }
+  
+      // Verifica si la contraseña es correcta
+      const passwordMatch = await bcrypt.compare(password, doctor.password);
+  
+      if (!passwordMatch) {
+        return res.status(401).json({ error: 'Correo electrónico o contraseña incorrectos' });
+      }
+  
+      // Si las credenciales son válidas, devuelve un token de sesión u otra información relevante
+      return res.status(200).json({ success: true, message: 'Inicio de sesión exitoso' });
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      return res.status(500).json({ error: 'Error al iniciar sesión' });
+    }
+  };
+
 const registrarDoctor = async (req, res) => {
     const { nombre, password, email, Celular, confirmado } = req.body;
 
@@ -67,5 +93,5 @@ const registrarDoctor = async (req, res) => {
 
 
 export{
-    cdoctores, registrarDoctor
+    cdoctores, registrarDoctor, loginDoctor
 };

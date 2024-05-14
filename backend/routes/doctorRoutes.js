@@ -1,10 +1,9 @@
 import express from 'express'
 
 const router = express.Router();
-import { cdoctores} from '../controllers/doctorController.js';
-//codigo gpt 
-import { registrarDoctor } from '../controllers/doctorController.js';
-//codigo gpt
+import { cdoctores, registrarDoctor, loginDoctor } from '../controllers/doctorController.js';
+
+
 
 
 router.get('/', cdoctores);
@@ -20,5 +19,7 @@ router.get("/perfildoctores", (req, res)=>{
 //codigo gpt 
 router.post('/registrar', registrarDoctor);
 //codigo gpt 
+// Ruta para iniciar sesión de un doctor
+router.post('/login', loginDoctor);
 
 export default router;
