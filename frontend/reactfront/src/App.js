@@ -25,7 +25,7 @@ const App = () => {
 
   return (
     <div>
- {currentView === 'menu' && <MainMenu onSelectOption={handleSelectOption} />}
+      {currentView === 'menu' && <MainMenu onSelectOption={handleSelectOption} />}
       {currentView === 'register' && <DoctorRegistration onBackToMenu={handleBackToMenu} />}
       {currentView === 'login' && <DoctorLogin onLoginSuccess={handleLoginSuccess} onBackToMenu={handleBackToMenu} />}
       {currentView === 'welcome' && <WelcomeDoctor doctorName={doctorName} />}
@@ -34,6 +34,9 @@ const App = () => {
 };
 
 export default App;
+
+
+
 
 
 

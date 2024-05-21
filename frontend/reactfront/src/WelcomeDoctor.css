@@ -1,15 +1,148 @@
 /* WelcomeDoctor.css */
 .welcome-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('doctor.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('doctor.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Agrega sombra de texto */
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+section {
+  width: 45%;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 1em;
+}
+
+.view-button {
+  background-color: #28a745;
+}
+
+.cancel-button {
+  background-color: #dc3545;
+}
+
+.reschedule-button {
+  background-color: #ffc107;
+}
+
+.finalize-button {
+  background-color: #17a2b8;
+}
+
+.back-button {
+  margin-top: 20px;
+  background-color: #007bff;
+  padding: 10px 20px;
+  font-size: 1.2em;
+}
+
+.statistics {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px 40px 20px 20px; /* Agrega padding a la derecha */
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group textarea {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button, .close-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+}
+
+.close-button {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
