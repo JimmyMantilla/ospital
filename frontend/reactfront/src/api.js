@@ -1,5 +1,6 @@
 // api.js
 
+
 const loginDoctor = async (email, password) => {
     try {
       const response = await fetch('/doctores/login', { // Ruta del backend para el inicio de sesión

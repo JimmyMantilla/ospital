@@ -1,0 +1,36 @@
+/* CustomAlert.css */
+.custom-alert {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f44336;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+  }
+  
+  .alert-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .close-btn {
+    margin-left: auto;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .alert-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .alert-message {
+    flex-grow: 1;
+  }
+  

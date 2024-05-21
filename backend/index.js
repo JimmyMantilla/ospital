@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use("/doctores", doctorRoutes);
 app.use("/pacientes", pacienteRoutes);
-const PORT = process.env.PORT || 4000;
-app.listen(3000, () =>{
-    console.log("servidor funcionando en el puerto 3s000");
+const PORT = process.env.PORT || 3001;
+app.listen(3001, () =>{
+    console.log("servidor funcionando en el puerto 3001");
 });

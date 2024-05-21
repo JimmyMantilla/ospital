@@ -1,0 +1,75 @@
+/* DoctorLogin.css */
+
+.login-container {
+    background-image: url('doctor.jpg'); /* Image should be in the public folder */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Added for positioning the back button */
+  }
+  
+  .login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .login-button:hover {
+    background-color: #45a049;
+  }
+  
+  .back-button {
+    position: absolute; /* Changed from relative to absolute */
+    top: 20px;
+    left: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px; /* Increased the font size */
+  }
+  
+  .back-button svg {
+    margin-right: 5px;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+  

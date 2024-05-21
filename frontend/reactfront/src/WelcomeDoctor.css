@@ -1,0 +1,15 @@
+/* WelcomeDoctor.css */
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('doctor.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  

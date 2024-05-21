@@ -31,7 +31,7 @@ const loginDoctor = async (req, res) => {
       }
   
       // Si las credenciales son válidas, devuelve un token de sesión u otra información relevante
-      return res.status(200).json({ success: true, message: 'Inicio de sesión exitoso' });
+      return res.status(200).json({ success: true, message: 'Inicio de sesión exitoso', name: doctor.nombre });
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
       return res.status(500).json({ error: 'Error al iniciar sesión' });

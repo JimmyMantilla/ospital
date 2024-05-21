@@ -1,0 +1,46 @@
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('hospital.jpg'); /* Ruta desde la raíz de la carpeta 'public' */
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .main-menu h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .menu-button {
+    background-color: rgba(0, 123, 255, 0.8);
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-button:hover {
+    background-color: rgba(0, 86, 179, 0.8);
+  }
+  
+  .menu-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+  
+  
